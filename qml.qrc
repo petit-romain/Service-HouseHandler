@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>Background.qml</file>
+        <file>CustomLabel.qml</file>
+        <file>Informations.qml</file>
+        <file>InformationsForm.ui.qml</file>
+        <file>Date.qml</file>
+        <file>DateForm.ui.qml</file>
+        <file>CustomTabButton.qml</file>
+    </qresource>
+</RCC>

@@ -4,6 +4,8 @@
 #include "pubsubclient.h"
 #include "dateinformations.h"
 
+#include <QFontDatabase>
+
 int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
@@ -14,7 +16,6 @@ int main(int argc, char *argv[])
 
     viewer.rootContext()->setContextProperty("pubsubclient", psc);
     viewer.rootContext()->setContextProperty("dateinformations", d);
-
     viewer.setSource(QUrl("qrc:/main.qml"));
 
     return app.exec();

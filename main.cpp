@@ -4,8 +4,6 @@
 #include "pubsubclient.h"
 #include "dateinformations.h"
 
-#include <QFontDatabase>
-
 int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);

@@ -21,24 +21,24 @@ Background {
     }
     CustomLabel {
         id: titleInside
-        x: 582
+        x: 575
         y: 62
         text: "Inside"
-        font.pointSize: 13
+        font.pointSize: 11
         font.bold: true
         font.underline: true
     }
     CustomLabel {
         id: titleOutside
-        x: 176
+        x: 165
         y: 62
         text: "Outside"
-        font.pointSize: 13
+        font.pointSize: 11
         font.bold: true
         font.underline: true
     }
     GridLayout {
-        x: 20
+        x: 35
         y: 85
         width: 90
         height: 355
@@ -47,6 +47,8 @@ Background {
         CustomLabel {
             id: txtTempIn
             text: "Temperature"
+            font.pointSize: 10
+            font.family: "DejaVu Sans"
             Layout.row: 0
             Layout.column: 0
             anchors.horizontalCenter: parent.horizontalCenter
@@ -54,6 +56,8 @@ Background {
         CustomLabel {
             id: tempIn
             text: qsTr("")
+            font.pointSize: 10
+            font.family: "DejaVu Sans"
             Layout.row: 1
             Layout.column: 0
             anchors.horizontalCenter: parent.horizontalCenter
@@ -61,6 +65,8 @@ Background {
         CustomLabel {
             id: txtPressIn
             text: "Pressure"
+            font.pointSize: 10
+            font.family: "DejaVu Sans"
             Layout.row: 2
             Layout.column: 0
             anchors.horizontalCenter: parent.horizontalCenter
@@ -68,6 +74,8 @@ Background {
         CustomLabel {
             id: pressIn
             text: qsTr("")
+            font.pointSize: 10
+            font.family: "DejaVu Sans"
             Layout.row: 3
             Layout.column: 0
             anchors.horizontalCenter: parent.horizontalCenter
@@ -75,6 +83,8 @@ Background {
         CustomLabel {
             id: txtHumiIn
             text: "Humidity"
+            font.pointSize: 10
+            font.family: "DejaVu Sans"
             Layout.row: 4
             Layout.column: 0
             anchors.horizontalCenter: parent.horizontalCenter
@@ -82,6 +92,8 @@ Background {
         CustomLabel {
             id: humiIn
             text: qsTr("")
+            font.pointSize: 10
+            font.family: "DejaVu Sans"
             Layout.row: 5
             Layout.column: 0
             anchors.horizontalCenter: parent.horizontalCenter
@@ -119,7 +131,7 @@ Background {
     }*/
 
     GridLayout {
-        x: 425
+        x: 435
         y: 85
         width: 90
         height: 355
@@ -128,6 +140,8 @@ Background {
         CustomLabel {
             id: txtTempOut
             text: "Temperature"
+            font.pointSize: 10
+            font.family: "DejaVu Sans"
             Layout.row: 0
             Layout.column: 0
             anchors.horizontalCenter: parent.horizontalCenter
@@ -135,6 +149,8 @@ Background {
         CustomLabel {
             id: tempOut
             text: qsTr("")
+            font.pointSize: 10
+            font.family: "DejaVu Sans"
             Layout.row: 1
             Layout.column: 0
             anchors.horizontalCenter: parent.horizontalCenter
@@ -142,6 +158,8 @@ Background {
         CustomLabel {
             id: txtPressOut
             text: "Pressure"
+            font.pointSize: 10
+            font.family: "DejaVu Sans"
             Layout.row: 2
             Layout.column: 0
             anchors.horizontalCenter: parent.horizontalCenter
@@ -149,6 +167,8 @@ Background {
         CustomLabel {
             id: pressOut
             text: qsTr("")
+            font.pointSize: 10
+            font.family: "DejaVu Sans"
             Layout.row: 3
             Layout.column: 0
             anchors.horizontalCenter: parent.horizontalCenter
@@ -156,6 +176,8 @@ Background {
         CustomLabel {
             id: txtHumiOut
             text: "Humidity"
+            font.pointSize: 10
+            font.family: "DejaVu Sans"
             Layout.row: 4
             Layout.column: 0
             anchors.horizontalCenter: parent.horizontalCenter
@@ -163,6 +185,8 @@ Background {
         CustomLabel {
             id: humiOut
             text: qsTr("")
+            font.pointSize: 10
+            font.family: "DejaVu Sans"
             Layout.row: 5
             Layout.column: 0
             anchors.horizontalCenter: parent.horizontalCenter

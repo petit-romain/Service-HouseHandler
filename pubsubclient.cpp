@@ -19,6 +19,7 @@ PubSubClient::~PubSubClient()
 
 void PubSubClient::onConnected()
 {
+    subscribe("sensor/#");
     subscribe(HUMI_IN_TOPIC);
     subscribe(HUMI_OUT_TOPIC);
     subscribe(TEMP_IN_TOPIC);

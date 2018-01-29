@@ -34,12 +34,15 @@ ApplicationWindow {
         currentIndex: swipeView.currentIndex
         CustomTabButton {
             text: qsTr("Informations")
+            font.pointSize: 10
         }
         CustomTabButton {
             text: qsTr("Music Player")
+            font.pointSize: 10
         }
         CustomTabButton {
             text: qsTr("Shutters and Lights")
+            font.pointSize: 10
         }
     }
 }

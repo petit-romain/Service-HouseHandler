@@ -89,6 +89,7 @@ DIST          = /opt/poky/2.3.3/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueab
 		/opt/poky/2.3.3/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/lib/qt5/mkspecs/modules/qt_lib_3dquickrender_private.pri \
 		/opt/poky/2.3.3/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/lib/qt5/mkspecs/modules/qt_lib_3drender.pri \
 		/opt/poky/2.3.3/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/lib/qt5/mkspecs/modules/qt_lib_3drender_private.pri \
+		/opt/poky/2.3.3/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/lib/qt5/mkspecs/modules/qt_lib_accessibility_support_private.pri \
 		/opt/poky/2.3.3/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/lib/qt5/mkspecs/modules/qt_lib_bluetooth.pri \
 		/opt/poky/2.3.3/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/lib/qt5/mkspecs/modules/qt_lib_bluetooth_private.pri \
 		/opt/poky/2.3.3/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/lib/qt5/mkspecs/modules/qt_lib_bootstrap_private.pri \
@@ -266,6 +267,7 @@ Makefile: Service-HouseHandler.pro /opt/poky/2.3.3/sysroots/cortexa7hf-neon-vfpv
 		/opt/poky/2.3.3/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/lib/qt5/mkspecs/modules/qt_lib_3dquickrender_private.pri \
 		/opt/poky/2.3.3/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/lib/qt5/mkspecs/modules/qt_lib_3drender.pri \
 		/opt/poky/2.3.3/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/lib/qt5/mkspecs/modules/qt_lib_3drender_private.pri \
+		/opt/poky/2.3.3/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/lib/qt5/mkspecs/modules/qt_lib_accessibility_support_private.pri \
 		/opt/poky/2.3.3/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/lib/qt5/mkspecs/modules/qt_lib_bluetooth.pri \
 		/opt/poky/2.3.3/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/lib/qt5/mkspecs/modules/qt_lib_bluetooth_private.pri \
 		/opt/poky/2.3.3/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/lib/qt5/mkspecs/modules/qt_lib_bootstrap_private.pri \
@@ -439,6 +441,7 @@ Makefile: Service-HouseHandler.pro /opt/poky/2.3.3/sysroots/cortexa7hf-neon-vfpv
 /opt/poky/2.3.3/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/lib/qt5/mkspecs/modules/qt_lib_3dquickrender_private.pri:
 /opt/poky/2.3.3/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/lib/qt5/mkspecs/modules/qt_lib_3drender.pri:
 /opt/poky/2.3.3/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/lib/qt5/mkspecs/modules/qt_lib_3drender_private.pri:
+/opt/poky/2.3.3/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/lib/qt5/mkspecs/modules/qt_lib_accessibility_support_private.pri:
 /opt/poky/2.3.3/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/lib/qt5/mkspecs/modules/qt_lib_bluetooth.pri:
 /opt/poky/2.3.3/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/lib/qt5/mkspecs/modules/qt_lib_bluetooth_private.pri:
 /opt/poky/2.3.3/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/lib/qt5/mkspecs/modules/qt_lib_bootstrap_private.pri:

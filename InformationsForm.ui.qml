@@ -24,6 +24,7 @@ Background {
         x: 575
         y: 62
         text: "Inside"
+        font.family: "DejaVu Sans"
         font.pointSize: 11
         font.bold: true
         font.underline: true
@@ -33,6 +34,7 @@ Background {
         x: 165
         y: 62
         text: "Outside"
+        font.family: "DejaVu Sans"
         font.pointSize: 11
         font.bold: true
         font.underline: true

@@ -24,7 +24,6 @@ Background {
         x: 575
         y: 62
         text: "Inside"
-        font.family: "DejaVu Sans"
         font.pointSize: 11
         font.bold: true
         font.underline: true
@@ -34,7 +33,6 @@ Background {
         x: 165
         y: 62
         text: "Outside"
-        font.family: "DejaVu Sans"
         font.pointSize: 11
         font.bold: true
         font.underline: true
@@ -50,7 +48,6 @@ Background {
             id: txtTempIn
             text: "Temperature"
             font.pointSize: 10
-            font.family: "DejaVu Sans"
             Layout.row: 0
             Layout.column: 0
             anchors.horizontalCenter: parent.horizontalCenter
@@ -59,7 +56,6 @@ Background {
             id: tempIn
             text: qsTr("")
             font.pointSize: 10
-            font.family: "DejaVu Sans"
             Layout.row: 1
             Layout.column: 0
             anchors.horizontalCenter: parent.horizontalCenter
@@ -68,7 +64,6 @@ Background {
             id: txtPressIn
             text: "Pressure"
             font.pointSize: 10
-            font.family: "DejaVu Sans"
             Layout.row: 2
             Layout.column: 0
             anchors.horizontalCenter: parent.horizontalCenter
@@ -77,7 +72,6 @@ Background {
             id: pressIn
             text: qsTr("")
             font.pointSize: 10
-            font.family: "DejaVu Sans"
             Layout.row: 3
             Layout.column: 0
             anchors.horizontalCenter: parent.horizontalCenter
@@ -86,7 +80,6 @@ Background {
             id: txtHumiIn
             text: "Humidity"
             font.pointSize: 10
-            font.family: "DejaVu Sans"
             Layout.row: 4
             Layout.column: 0
             anchors.horizontalCenter: parent.horizontalCenter
@@ -95,7 +88,6 @@ Background {
             id: humiIn
             text: qsTr("")
             font.pointSize: 10
-            font.family: "DejaVu Sans"
             Layout.row: 5
             Layout.column: 0
             anchors.horizontalCenter: parent.horizontalCenter
@@ -143,7 +135,6 @@ Background {
             id: txtTempOut
             text: "Temperature"
             font.pointSize: 10
-            font.family: "DejaVu Sans"
             Layout.row: 0
             Layout.column: 0
             anchors.horizontalCenter: parent.horizontalCenter
@@ -152,7 +143,6 @@ Background {
             id: tempOut
             text: qsTr("")
             font.pointSize: 10
-            font.family: "DejaVu Sans"
             Layout.row: 1
             Layout.column: 0
             anchors.horizontalCenter: parent.horizontalCenter
@@ -161,7 +151,6 @@ Background {
             id: txtPressOut
             text: "Pressure"
             font.pointSize: 10
-            font.family: "DejaVu Sans"
             Layout.row: 2
             Layout.column: 0
             anchors.horizontalCenter: parent.horizontalCenter
@@ -170,7 +159,6 @@ Background {
             id: pressOut
             text: qsTr("")
             font.pointSize: 10
-            font.family: "DejaVu Sans"
             Layout.row: 3
             Layout.column: 0
             anchors.horizontalCenter: parent.horizontalCenter
@@ -179,7 +167,6 @@ Background {
             id: txtHumiOut
             text: "Humidity"
             font.pointSize: 10
-            font.family: "DejaVu Sans"
             Layout.row: 4
             Layout.column: 0
             anchors.horizontalCenter: parent.horizontalCenter
@@ -188,7 +175,6 @@ Background {
             id: humiOut
             text: qsTr("")
             font.pointSize: 10
-            font.family: "DejaVu Sans"
             Layout.row: 5
             Layout.column: 0
             anchors.horizontalCenter: parent.horizontalCenter

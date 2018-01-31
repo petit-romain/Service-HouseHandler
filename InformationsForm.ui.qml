@@ -4,94 +4,94 @@ import QtQuick.Layouts 1.3
 
 Background {
     id: pageInformations
-    property alias tempOut: tempOut
+
     property alias tempIn: tempIn
-    property alias pressOut: pressOut
     property alias pressIn: pressIn
-    property alias humiOut: humiOut
     property alias humiIn: humiIn
+    property alias tempOut: tempOut
+    property alias pressOut: pressOut
+    property alias humiOut: humiOut
 
     Rectangle {
-        width: 435
+        width: 265
         height: 3
         color: "#e05419"
-        x: 183
-        y: 261
+        x: 272
+        y: 179
         rotation: 90
     }
+
+    Rectangle {
+        width: 800
+        height: 3
+        color: "#e05419"
+        x: 0
+        y: 310
+    }
+
     CustomLabel {
         id: titleInside
         x: 575
-        y: 62
-        text: "Inside"
+        y: 60
         font.pointSize: 11
         font.bold: true
         font.underline: true
+        text: "Outside"
     }
+
     CustomLabel {
         id: titleOutside
         x: 165
-        y: 62
-        text: "Outside"
+        y: 60
         font.pointSize: 11
         font.bold: true
         font.underline: true
+        text: "Inside"
     }
-    GridLayout {
-        x: 35
-        y: 85
-        width: 90
-        height: 355
-        rows: 6
-        columns: 1
-        CustomLabel {
-            id: txtTempIn
-            text: "Temperature"
-            font.pointSize: 10
-            Layout.row: 0
-            Layout.column: 0
-            anchors.horizontalCenter: parent.horizontalCenter
-        }
-        CustomLabel {
-            id: tempIn
-            text: qsTr("")
-            font.pointSize: 10
-            Layout.row: 1
-            Layout.column: 0
-            anchors.horizontalCenter: parent.horizontalCenter
-        }
-        CustomLabel {
-            id: txtPressIn
-            text: "Pressure"
-            font.pointSize: 10
-            Layout.row: 2
-            Layout.column: 0
-            anchors.horizontalCenter: parent.horizontalCenter
-        }
-        CustomLabel {
-            id: pressIn
-            text: qsTr("")
-            font.pointSize: 10
-            Layout.row: 3
-            Layout.column: 0
-            anchors.horizontalCenter: parent.horizontalCenter
-        }
-        CustomLabel {
-            id: txtHumiIn
-            text: "Humidity"
-            font.pointSize: 10
-            Layout.row: 4
-            Layout.column: 0
-            anchors.horizontalCenter: parent.horizontalCenter
-        }
-        CustomLabel {
-            id: humiIn
-            text: qsTr("")
-            font.pointSize: 10
-            Layout.row: 5
-            Layout.column: 0
-            anchors.horizontalCenter: parent.horizontalCenter
-        }
+
+    CustomLabel {
+        id: txtTempIn
+        x: 50
+        y: 120
+        font.pointSize: 10
+        text: "Temperature :"
+    }
+
+    CustomLabel {
+        id: tempIn
+        x: 250
+        y: 120
+        font.pointSize: 10
+    }
+
+    CustomLabel {
+        id: txtPressIn
+        x: 50
+        y: 200
+        font.pointSize: 10
+        text: "Pressure :"
+    }
+
+    CustomLabel {
+        id: pressIn
+        x: 250
+        y: 200
+        font.pointSize: 10
+    }
+
+    CustomLabel {
+        id: txtHumiIn
+        x: 50
+        y: 280
+        font.pointSize: 10
+        text: "Humidity :"
+    }
+
+    CustomLabel {
+        id: humiIn
+        x: 250
+        y: 280
+        font.pointSize: 10
     }
 
     /*Item {
@@ -124,62 +124,51 @@ Background {
         }
     }*/
 
-    GridLayout {
-        x: 435
-        y: 85
-        width: 90
-        height: 355
-        rows: 6
-        columns: 1
-        CustomLabel {
-            id: txtTempOut
-            text: "Temperature"
-            font.pointSize: 10
-            Layout.row: 0
-            Layout.column: 0
-            anchors.horizontalCenter: parent.horizontalCenter
-        }
-        CustomLabel {
-            id: tempOut
-            text: qsTr("")
-            font.pointSize: 10
-            Layout.row: 1
-            Layout.column: 0
-            anchors.horizontalCenter: parent.horizontalCenter
-        }
-        CustomLabel {
-            id: txtPressOut
-            text: "Pressure"
-            font.pointSize: 10
-            Layout.row: 2
-            Layout.column: 0
-            anchors.horizontalCenter: parent.horizontalCenter
-        }
-        CustomLabel {
-            id: pressOut
-            text: qsTr("")
-            font.pointSize: 10
-            Layout.row: 3
-            Layout.column: 0
-            anchors.horizontalCenter: parent.horizontalCenter
-        }
-        CustomLabel {
-            id: txtHumiOut
-            text: "Humidity"
-            font.pointSize: 10
-            Layout.row: 4
-            Layout.column: 0
-            anchors.horizontalCenter: parent.horizontalCenter
-        }
-        CustomLabel {
-            id: humiOut
-            text: qsTr("")
-            font.pointSize: 10
-            Layout.row: 5
-            Layout.column: 0
-            anchors.horizontalCenter: parent.horizontalCenter
-        }
+    CustomLabel {
+        id: txtTempOut
+        x: 450
+        y: 120
+        font.pointSize: 10
+        text: "Temperature :"
     }
+
+    CustomLabel {
+        id: tempOut
+        x: 650
+        y: 120
+        font.pointSize: 10
+    }
+
+    CustomLabel {
+        id: txtPressOut
+        x: 450
+        y: 200
+        font.pointSize: 10
+        text: "Pressure :"
+    }
+
+    CustomLabel {
+        id: pressOut
+        x: 650
+        y: 200
+        font.pointSize: 10
+    }
+
+    CustomLabel {
+        id: txtHumiOut
+        x: 450
+        y: 280
+        font.pointSize: 10
+        text: "Humidity :"
+    }
+
+    CustomLabel {
+        id: humiOut
+        x: 650
+        y: 280
+        font.pointSize: 10
+    }
+
     /*Item {
         x: 515
         y: 90

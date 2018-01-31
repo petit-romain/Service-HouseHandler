@@ -8,5 +8,9 @@
         <file>Date.qml</file>
         <file>DateForm.ui.qml</file>
         <file>CustomTabButton.qml</file>
+        <file>LedsShutters.qml</file>
+        <file>LedsShuttersForm.ui.qml</file>
+        <file>Musics.qml</file>
+        <file>MusicsForm.ui.qml</file>
     </qresource>
 </RCC>

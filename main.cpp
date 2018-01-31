@@ -17,4 +17,7 @@ int main(int argc, char *argv[])
     viewer.setSource(QUrl("qrc:/main.qml"));
 
     return app.exec();
+
+    /*PubSubClient * psc = new PubSubClient();
+    psc->publishShutter("5", "bedroom");*/
 }

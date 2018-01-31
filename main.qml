@@ -23,6 +23,14 @@ ApplicationWindow {
         Informations {
 
         }
+
+        Musics {
+
+        }
+
+        LedsShutters {
+
+        }
     }
 
     TabBar {

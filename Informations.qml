@@ -19,4 +19,7 @@ InformationsForm {
     pressOut {
         text: pubsubclient.pressOut.toPrecision(4) + " hPa"
     }
+    lumiOut {
+        text: "Outside luminosity : " + pubsubclient.lumiOut.toPrecision(4) + " Lux"
+    }
 }

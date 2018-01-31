@@ -4,6 +4,7 @@
 #include <QDateTime>
 #include <QTimer>
 #include <QTextStream>
+#include <QLocale>
 
 class DateInformations : public QObject
 {

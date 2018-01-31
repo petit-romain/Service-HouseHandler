@@ -43,10 +43,9 @@ public:
     PubSubClient(const QHostAddress& = MQTT_HOST, const quint16 = MQTT_PORT, QObject* = NULL);
     ~PubSubClient();
 
-    Q_INVOKABLE void publishShutter(QString, QString);
-
 public slots:
     void onConnected();
+    void onPublish(QString, QString);
     void onSubscribed(const QString &);
     void offSubscribed();
     void onReceived(const QMQTT::Message &);

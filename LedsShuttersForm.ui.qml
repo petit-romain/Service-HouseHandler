@@ -1,6 +1,5 @@
 import QtQuick 2.0
-import QtQuick.Controls 1.4
-import QtQuick.Controls.Styles 1.4
+import QtQuick.Controls 2.0
 
 Background {
     id: pageLedsShutters
@@ -27,16 +26,16 @@ Background {
     CustomLabel {
         text: qsTr("Bedroom")
         font.pointSize: 10
-        x: 604
+        x: 585
         y: 316
         width: 61
         height: 20
     }
 
     Switch {
-
+        signal swClicked(string _val, string _topic)
         x: 609
-        y: 403
+        y: 386
     }
 
     Rectangle {
@@ -51,11 +50,11 @@ Background {
 
     Switch {
         x: 609
-        y: 70
+        y: 64
     }
 
     Switch {
-        x: 740
+        x: 724
         y: 183
         rotation: 270
     }
@@ -91,11 +90,11 @@ Background {
 
     Switch {
         x: 263
-        y: 403
+        y: 385
     }
 
     CustomLabel {
-        x: 256
+        x: 244
         y: 316
         width: 66
         height: 20
@@ -116,7 +115,7 @@ Background {
 
 
     CustomLabel {
-        x: 286
+        x: 269
         y: 166
         width: 78
         height: 20
@@ -136,11 +135,11 @@ Background {
 
     Switch {
         x: 76
-        y: 403
+        y: 386
     }
 
     CustomLabel {
-        x: 77
+        x: 67
         y: 262
         width: 49
         height: 20

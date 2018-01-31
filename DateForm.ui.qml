@@ -4,7 +4,7 @@ import QtQuick.Controls 2.0
 Item {
     id: dateInf
     property alias date: date
-    x: 140
+    x: 105
     y: 7
     CustomLabel {
         id: date

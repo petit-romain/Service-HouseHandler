@@ -5,7 +5,6 @@ import QtQuick.Controls 2.0
 ApplicationWindow {
     id: mainWindow
     visible: true
-    //visibility: "FullScreen"
     width: 800
     height: 480
     title: qsTr("House handler")

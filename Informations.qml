@@ -1,4 +1,5 @@
 import QtQuick 2.0
+import QtQuick.Controls 2.0
 
 InformationsForm {
     humiIn {
@@ -21,5 +22,20 @@ InformationsForm {
     }
     lumiOut {
         text: "Outside luminosity : " + pubsubclient.lumiOut.toPrecision(4) + " Lux"
+    }
+
+    Switch {
+        id: swAlarm
+        x: 583
+        y: 380
+        onCheckedChanged: pubsubclient.onPublish(checked, "alarm")
+    }
+
+    CustomLabel {
+        font.pointSize: 10
+        x: 500
+        y: 340
+        text: (swAlarm.checked) ? "Alarm mode enabled" : "Alarm mode disabled"
+
     }
 }

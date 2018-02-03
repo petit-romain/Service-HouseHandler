@@ -147,26 +147,4 @@ Background {
         x: 100
         y: 370
     }
-
-    Item {
-        Switch {
-            id: switchAlarm
-            x: 583
-            y: 380
-        }
-        CustomLabel {
-            text: qsTr("Alarm mode is enabled !")
-            visible: switchAlarm.checked == true
-            font.pointSize: 10
-            x: 500
-            y: 340
-        }
-        CustomLabel {
-            text: qsTr("Alarm mode is disabled !")
-            visible: switchAlarm.checked == false
-            font.pointSize: 10
-            x: 500
-            y: 340
-        }
-    }
 }

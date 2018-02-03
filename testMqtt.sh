@@ -8,3 +8,4 @@ mosquitto_pub -h $1 -t "sensor/press/in" -m "21.07"
 mosquitto_pub -h $1 -t "sensor/humi/out" -m "21.53"
 mosquitto_pub -h $1 -t "sensor/humi/in" -m "22.07"
 
+mosquitto_pub -h $1 -t "sensor/lumi/out" -m "23.53"

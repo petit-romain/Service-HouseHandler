@@ -6,18 +6,16 @@
 
 int main(int argc, char *argv[])
 {
+    QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
     QGuiApplication app(argc, argv);
     QQmlApplicationEngine engine;
-
-    //QObject *item = engine.rootObjects();
 
     PubSubClient * psc = new PubSubClient();
     DateInformations * d = new DateInformations();
 
-    engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
     engine.rootContext()->setContextProperty("pubsubclient", psc);
     engine.rootContext()->setContextProperty("dateinformations", d);
+    engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
 
-    //QObject::connect(item, SIGNAL(swClicked(QString, QString)), psc, SLOT(onPublish(QString, QString)));
     return app.exec();
 }

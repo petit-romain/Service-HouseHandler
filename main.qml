@@ -20,15 +20,21 @@ ApplicationWindow {
         currentIndex: tabBar.currentIndex
 
         Informations {
+            AlarmHandler {
 
+            }
         }
 
         Musics {
+            AlarmHandler {
 
+            }
         }
 
         LedsShutters {
+            AlarmHandler {
 
+            }
         }
     }
 

@@ -32,12 +32,6 @@ Background {
         height: 20
     }
 
-    Switch {
-        signal swClicked(string _val, string _topic)
-        x: 609
-        y: 386
-    }
-
     Rectangle {
         width: 308
         height: 123
@@ -48,20 +42,9 @@ Background {
         y: 307
     }
 
-    Switch {
-        x: 609
-        y: 64
-    }
-
-    Switch {
-        x: 724
-        y: 183
-        rotation: 270
-    }
-
     CustomLabel {
-        x: 600
-        y: 135
+        x: 601
+        y: 68
         width: 60
         height: 20
         text: qsTr("Kitchen")
@@ -86,11 +69,6 @@ Background {
         border.width: 3
         x: 400
         y: 307
-    }
-
-    Switch {
-        x: 263
-        y: 385
     }
 
     CustomLabel {
@@ -131,11 +109,6 @@ Background {
         border.width: 3
         x: 169
         y: 159
-    }
-
-    Switch {
-        x: 76
-        y: 386
     }
 
     CustomLabel {

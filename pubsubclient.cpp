@@ -21,7 +21,7 @@ PubSubClient::PubSubClient(const QHostAddress& host, const quint16 port, QObject
 
 PubSubClient::~PubSubClient()
 {
-
+    delete m_timer;
 }
 
 void PubSubClient::onConnected()

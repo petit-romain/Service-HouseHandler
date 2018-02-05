@@ -28,14 +28,23 @@ InformationsForm {
         id: swAlarm
         x: 583
         y: 380
-        onCheckedChanged: pubsubclient.onPublish(checked, "alarm")
+        function checkedChanged()
+        {
+            if(!checked)
+                pubsubclient.onSdAlarmMode()
+            pubsubclient.alarmMode = checked
+        }
+        onCheckedChanged: checkedChanged()
     }
+
+    /*Button {c
+        onClicked: pubsubclient.onSdAlarmMode()
+    }*/
 
     CustomLabel {
         font.pointSize: 10
         x: 500
         y: 340
         text: (swAlarm.checked) ? "Alarm mode enabled" : "Alarm mode disabled"
-
     }
 }

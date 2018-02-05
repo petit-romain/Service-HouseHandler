@@ -6,12 +6,7 @@ PubSubClient::PubSubClient(const QHostAddress& host, const quint16 port, QObject
     m_tempIn = m_tempOut = 0.0;
     m_pressIn = m_pressOut = 0.0;
     m_lumiOut = 0.0;
-    m_smeDetected = 0;
-
-    /*m_timer = new QTimer(this);
-    m_timer->setInterval(1000);
-    m_timer->start();
-    connect(m_timer, SIGNAL(timeout()), this, SLOT(onTimeOut()));*/
+    m_smeDetected = m_alarmMode = 0;
 
     connect(this, SIGNAL(connected()), this, SLOT(onConnected()));
     connect(this, SIGNAL(subscribed(QString,quint8)), this, SLOT(onSubscribed(QString)));
@@ -94,35 +89,43 @@ void PubSubClient::onReceived(const QMQTT::Message& message)
         m_lumiOut = message.payload().toFloat();
         Q_EMIT lumiOutChanged();
     }
-    else if(message.topic() == ALARM_TOPIC)
+    else if((message.topic() == ALARM_TOPIC))
     {
-        if(message.payload().toInt())
+        m_qout << "Alarm mode topic : " << m_alarmMode << endl;
+        if(message.payload().toInt() && m_alarmMode)
         {
-            if(m_smeDetected == 0)
-            {
-                m_qout << "Timer on" << endl;
-                m_timer = new QTimer(this);
-                m_timer->setInterval(1000);
-                m_timer->start();
-                connect(m_timer, SIGNAL(timeout()), this, SLOT(onTimeOut()));
-            }
+            m_qout << "Timer on" << endl;
+            m_timer = new QTimer(this);
+            m_timer->setInterval(1000);
+            m_timer->start();
+            connect(m_timer, SIGNAL(timeout()), this, SLOT(onTimeOut()));
+            m_qout << "Someone detected 1 " << m_smeDetected << endl;
         }
-        else
-        {
-            m_qout << "Timer off" << endl;
-            m_smeDetected = 0;
-            m_timer->stop();
-            m_timer->
-            disconnect(m_timer, SIGNAL(timeout()), this, SLOT(onTimeOut()));
-            Q_EMIT smeDetectedChanged();
-        }
-        m_qout << "Someone detected " << m_smeDetected << endl;
     }
 }
 
 void PubSubClient::onTimeOut()
 {
     m_smeDetected ^= 1;
-    m_qout << "Someone detected " << m_smeDetected << endl;
+    m_qout << "Someone detected 2 " << m_smeDetected << endl;
     Q_EMIT smeDetectedChanged();
+}
+
+void PubSubClient::onSdAlarmMode()
+{
+    m_qout << "Timer off" << endl;
+    m_smeDetected = 0;
+    m_timer->stop();
+    disconnect(m_timer, SIGNAL(timeout()), this, SLOT(onTimeOut()));
+    Q_EMIT smeDetectedChanged();
+}
+
+void PubSubClient::setAlarmMode(const bool & _alarm)
+{
+    m_alarmMode = _alarm;
+}
+
+bool PubSubClient::getAlarmMode() const
+{
+    return m_alarmMode;
 }

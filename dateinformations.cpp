@@ -7,7 +7,6 @@ DateInformations::DateInformations(QObject * parent) : QObject(parent), m_qout(s
     m_timer->start();
 
     connect(m_timer, SIGNAL(timeout()), this, SLOT(onTimeout()));
-
     Q_EMIT onTimeout();
 }
 

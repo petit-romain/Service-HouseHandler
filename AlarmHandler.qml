@@ -9,7 +9,7 @@ Item {
         height: 950
         color: "#f32727"
         rotation: 60
-        visible: (pubsubclient.smeDetected ) ? true : false
+        visible: (pubsubclient.smeDetected && pubsubclient.alarmMode ) ? true : false
     }
 
     Rectangle {
@@ -19,6 +19,6 @@ Item {
         height: 950
         color: "#f32727"
         rotation: 120
-        visible: (pubsubclient.smeDetected) ? true : false
+        visible: (pubsubclient.smeDetected && pubsubclient.alarmMode ) ? true : false
     }
 }

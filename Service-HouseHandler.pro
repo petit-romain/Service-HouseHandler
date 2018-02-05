@@ -39,5 +39,10 @@ QML_DESIGNER_IMPORT_PATH =
 #else: unix:!android: target.path = /opt/$${TARGET}/bin
 #!isEmpty(target.path): INSTALLS += target
 
+/*linux-* {
+    target.path = /home/root
+    INSTALLS += target
+}*/
+
 target.path = /usr/bin/
 INSTALLS += target

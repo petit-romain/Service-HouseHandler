@@ -5,22 +5,20 @@
 #include <QTimer>
 #include <QTextStream>
 #include <QLocale>
+#include <QDebug>
+#include <QPointer>
 
 class DateInformations : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(QString date MEMBER m_date NOTIFY dateChanged)
 
-private:
-    QTextStream m_qout{stdout};
-
 public:
     QString m_date;
-    QTimer * m_timer;
+    QPointer<QTimer> m_timer;
 
 public:
     DateInformations(QObject * = NULL);
-    ~DateInformations();
 
 public slots:
     void onTimeout();

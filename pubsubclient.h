@@ -3,6 +3,11 @@
 
 #include <qmqtt>
 #include <QTimer>
+#include <QDebug>
+#include <QPointer>
+
+const QString CLR_DOOR_OPENED = "#42ff33";
+const QString CLR_DOOR_CLOSED = "#e12709";
 
 const QHostAddress MQTT_HOST = QHostAddress::LocalHost;
 //const QHostAddress MQTT_HOST = (QHostAddress)"10.0.0.1";
@@ -19,7 +24,7 @@ const QString PRESS_IN_TOPIC = "sensor/press/in";
 
 const QString LUMI_OUT_TOPIC = "sensor/lumi/out";
 
-const QString ALARM_TOPIC = "alarm/detection";
+const QString DOOR_TOPIC = "door/handler";
 
 class PubSubClient : public QMQTT::Client
 {
@@ -31,11 +36,9 @@ class PubSubClient : public QMQTT::Client
     Q_PROPERTY(float pressIn        MEMBER  m_pressIn           NOTIFY pressInChanged)
     Q_PROPERTY(float pressOut       MEMBER  m_pressOut          NOTIFY pressOutChanged)
     Q_PROPERTY(float lumiOut        MEMBER  m_lumiOut           NOTIFY lumiOutChanged)
-    Q_PROPERTY(float smeDetected    MEMBER  m_smeDetected       NOTIFY smeDetectedChanged)
-    Q_PROPERTY(bool alarmMode       READ    getAlarmMode        WRITE setAlarmMode  NOTIFY alarmModeChanged)
-
-private:
-    QTextStream m_qout{stdout};
+    Q_PROPERTY(bool smeDetected     MEMBER  m_smeDetected       NOTIFY smeDetectedChanged)
+    Q_PROPERTY(bool alarmMode       READ    getAlarmMode        WRITE setAlarmMode      NOTIFY alarmModeChanged)
+    Q_PROPERTY(QString stateDoor    READ    getStateDoor        WRITE setStateDoor      NOTIFY stateDoorChanged)
 
 public:
     float m_humiIn, m_humiOut;
@@ -43,13 +46,16 @@ public:
     float m_pressIn, m_pressOut;
     float m_lumiOut;
     bool m_smeDetected, m_alarmMode;
+    QString m_stateDoor;
     QTimer * m_timer;
+    //QPointer<QTimer> m_timer;
 
 public:
     PubSubClient(const QHostAddress& = MQTT_HOST, const quint16 = MQTT_PORT, QObject* = NULL);
-    ~PubSubClient();
     bool getAlarmMode() const;
     void setAlarmMode(const bool &);
+    QString getStateDoor() const;
+    void setStateDoor(const QString &);
 
 public slots:
     void onConnected();
@@ -71,6 +77,7 @@ public :
     Q_SIGNAL void smeDetectedChanged();
     Q_SIGNAL void alarmModeChanged();
     Q_SIGNAL void alarmModeShutdowned();
+    Q_SIGNAL void stateDoorChanged();
 };
 
 #endif // PUBSUBCLIENT_H

@@ -5,9 +5,8 @@
 #include <QTimer>
 #include <QDebug>
 #include <QPointer>
-
-const QString CLR_DOOR_OPENED = "#42ff33";
-const QString CLR_DOOR_CLOSED = "#e12709";
+#include <QMediaPlayer>
+#include <QMediaPlaylist>
 
 const QHostAddress MQTT_HOST = QHostAddress::LocalHost;
 //const QHostAddress MQTT_HOST = (QHostAddress)"10.0.0.1";
@@ -47,8 +46,9 @@ public:
     float m_lumiOut;
     bool m_smeDetected, m_alarmMode;
     QString m_stateDoor;
-    QTimer * m_timer;
-    //QPointer<QTimer> m_timer;
+    QPointer<QTimer> m_timer;
+    QPointer<QMediaPlayer> m_mediaPlayer;
+    QPointer<QMediaPlaylist> m_mediaPlaylist;
 
 public:
     PubSubClient(const QHostAddress& = MQTT_HOST, const quint16 = MQTT_PORT, QObject* = NULL);

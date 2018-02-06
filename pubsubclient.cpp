@@ -1,22 +1,27 @@
 #include "pubsubclient.h"
 
-PubSubClient::PubSubClient(const QHostAddress& host, const quint16 port, QObject* parent) : QMQTT::Client(host, port, parent), m_qout(stdout)
+PubSubClient::PubSubClient(const QHostAddress& host, const quint16 port, QObject* parent) : QMQTT::Client(host, port, parent)
 {
     m_humiIn = m_humiOut = 0.0;
     m_tempIn = m_tempOut = 0.0;
     m_pressIn = m_pressOut = 0.0;
     m_lumiOut = 0.0;
     m_smeDetected = m_alarmMode = 0;
+    m_stateDoor = "#e12709";
+    m_timer = new QTimer(this);
+
+    m_mediaPlaylist = new QMediaPlaylist(this);
+    m_mediaPlaylist->addMedia(QUrl::fromLocalFile("/home/romain/Music/Alarm_Sound.mp3"));
+    m_mediaPlaylist->setPlaybackMode(QMediaPlaylist::Loop);
+
+    m_mediaPlayer = new QMediaPlayer(this);
+    m_mediaPlayer->setPlaylist(m_mediaPlaylist);
+    m_mediaPlayer->setVolume(50);
 
     connect(this, SIGNAL(connected()), this, SLOT(onConnected()));
     connect(this, SIGNAL(subscribed(QString,quint8)), this, SLOT(onSubscribed(QString)));
     connect(this, SIGNAL(received(QMQTT::Message)), this, SLOT(onReceived(QMQTT::Message)));
     connectToHost();
-}
-
-PubSubClient::~PubSubClient()
-{
-    delete m_timer;
 }
 
 void PubSubClient::onConnected()
@@ -28,8 +33,8 @@ void PubSubClient::onConnected()
     subscribe(PRESS_IN_TOPIC);
     subscribe(PRESS_OUT_TOPIC);
     subscribe(LUMI_OUT_TOPIC);
-    subscribe(ALARM_TOPIC);
-    m_qout << "All topics connected !" << endl;
+    subscribe(DOOR_TOPIC);
+    qDebug() << "All topics connected !" << endl;
 }
 
 void PubSubClient::onPublish(bool _value, QString _topic)
@@ -37,23 +42,23 @@ void PubSubClient::onPublish(bool _value, QString _topic)
     double id = 7.3;
     QMQTT::Message message(id, _topic, QString::number(_value).toUtf8());
     publish(message);
-    m_qout << "Value : " << _value << " , topic : " << _topic << endl;
+    qDebug() << "Value : " << _value << " , topic : " << _topic << endl;
 }
 
 void PubSubClient::onSubscribed(const QString& topic)
 {
-    m_qout << "Subscribed to " << topic << " !" << endl;
+    qDebug() << "Subscribed to " << topic << " !" << endl;
 }
 
 void PubSubClient::offSubscribed()
 {
     disconnectFromHost();
-    m_qout << "Disconnected !" << endl;
+    qDebug() << "Disconnected !" << endl;
 }
 
 void PubSubClient::onReceived(const QMQTT::Message& message)
 {
-    m_qout << "Publish received: \"" << QString::fromUtf8(message.payload()) << "\", from topic : " << message.topic() << endl;
+    qDebug() << "Publish received: " << QString::fromUtf8(message.payload()) << ", from topic : " << message.topic() << endl;
     if(message.topic() == HUMI_IN_TOPIC)
     {
         m_humiIn = message.payload().toFloat();
@@ -89,17 +94,29 @@ void PubSubClient::onReceived(const QMQTT::Message& message)
         m_lumiOut = message.payload().toFloat();
         Q_EMIT lumiOutChanged();
     }
-    else if((message.topic() == ALARM_TOPIC))
+    else if(message.topic() == DOOR_TOPIC)
     {
-        m_qout << "Alarm mode topic : " << m_alarmMode << endl;
+        qDebug() << "Alarm mode topic : " << m_alarmMode << endl;
         if(message.payload().toInt() && m_alarmMode)
         {
-            m_qout << "Timer on" << endl;
-            m_timer = new QTimer(this);
-            m_timer->setInterval(1000);
+            qDebug() << "Timer on" << endl;
+            m_timer->setInterval(930);
             m_timer->start();
+            m_mediaPlayer->play();
             connect(m_timer, SIGNAL(timeout()), this, SLOT(onTimeOut()));
-            m_qout << "Someone detected 1 " << m_smeDetected << endl;
+            qDebug() << "Someone detected topic -> " << m_smeDetected << endl;
+        }
+        else if(message.payload().toInt() && !m_alarmMode)
+        {
+            qDebug() << "Door topic on" << endl;
+            m_stateDoor = "#42ff33";
+            Q_EMIT stateDoorChanged();
+        }
+        else if(!message.payload().toInt() && !m_alarmMode)
+        {
+            qDebug() << "Door topic off" << endl;
+            m_stateDoor = "#e12709";
+            Q_EMIT stateDoorChanged();
         }
     }
 }
@@ -107,22 +124,36 @@ void PubSubClient::onReceived(const QMQTT::Message& message)
 void PubSubClient::onTimeOut()
 {
     m_smeDetected ^= 1;
-    m_qout << "Someone detected 2 " << m_smeDetected << endl;
+    qDebug() << "Someone detected slot -> " << m_smeDetected << endl;
     Q_EMIT smeDetectedChanged();
 }
 
 void PubSubClient::onSdAlarmMode()
 {
-    m_qout << "Timer off" << endl;
-    m_smeDetected = 0;
-    m_timer->stop();
-    disconnect(m_timer, SIGNAL(timeout()), this, SLOT(onTimeOut()));
-    Q_EMIT smeDetectedChanged();
+    if(m_timer->isActive())
+    {
+        qDebug() << "Timer off" << endl;
+        m_smeDetected = 0;
+        m_mediaPlayer->stop();
+        m_timer->stop();
+        disconnect(m_timer, SIGNAL(timeout()), this, SLOT(onTimeOut()));
+        Q_EMIT smeDetectedChanged();
+    }
 }
 
 void PubSubClient::setAlarmMode(const bool & _alarm)
 {
     m_alarmMode = _alarm;
+}
+
+QString PubSubClient::getStateDoor() const
+{
+    return m_stateDoor;
+}
+
+void PubSubClient::setStateDoor(const QString & _stateDoor)
+{
+    m_stateDoor = _stateDoor;
 }
 
 bool PubSubClient::getAlarmMode() const

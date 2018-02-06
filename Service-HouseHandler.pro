@@ -1,4 +1,4 @@
-QT += quick core widgets network mqtt qml quickcontrols2
+QT += quick core widgets network mqtt qml quickcontrols2 multimedia
 #QT -= gui
 CONFIG += c++11
 #CONFIG -= app_bundle
@@ -10,8 +10,6 @@ TARGET = Service-HouseHandler
 # depend on your compiler). Please consult the documentation of the
 # deprecated API in order to know how to port your code away from it.
 DEFINES += QT_DEPRECATED_WARNINGS
-
-# INCLUDEPATH += /home/romain/Softwares/Qt/5.10.0/Src/qmqtt/src/mqtt
 
 # You can also make your code fail to compile if you use deprecated APIs.
 # In order to do so, uncomment the following line.
@@ -39,10 +37,10 @@ QML_DESIGNER_IMPORT_PATH =
 #else: unix:!android: target.path = /opt/$${TARGET}/bin
 #!isEmpty(target.path): INSTALLS += target
 
-/*linux-* {
-    target.path = /home/root
-    INSTALLS += target
-}*/
+#linux-* {
+#    target.path = /home/root
+#    INSTALLS += target
+#}
 
-target.path = /usr/bin/
-INSTALLS += target
+#target.path = /usr/bin/
+#INSTALLS += target

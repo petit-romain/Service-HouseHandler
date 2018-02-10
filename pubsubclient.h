@@ -5,8 +5,6 @@
 #include <QTimer>
 #include <QDebug>
 #include <QPointer>
-#include <QMediaPlayer>
-#include <QMediaPlaylist>
 
 const QHostAddress MQTT_HOST = QHostAddress::LocalHost;
 //const QHostAddress MQTT_HOST = (QHostAddress)"10.0.0.1";
@@ -47,8 +45,6 @@ public:
     bool m_smeDetected, m_alarmMode;
     QString m_stateDoor;
     QPointer<QTimer> m_timer;
-    QPointer<QMediaPlayer> m_mediaPlayer;
-    QPointer<QMediaPlaylist> m_mediaPlaylist;
 
 public:
     PubSubClient(const QHostAddress& = MQTT_HOST, const quint16 = MQTT_PORT, QObject* = NULL);

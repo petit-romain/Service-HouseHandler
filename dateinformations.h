@@ -3,7 +3,6 @@
 
 #include <QDateTime>
 #include <QTimer>
-#include <QTextStream>
 #include <QLocale>
 #include <QDebug>
 #include <QPointer>

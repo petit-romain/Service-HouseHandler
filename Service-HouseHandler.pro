@@ -1,4 +1,4 @@
-QT += quick core widgets network mqtt qml quickcontrols2 multimedia
+QT += quick core widgets network mqtt qml quickcontrols2
 #QT -= gui
 CONFIG += c++11
 #CONFIG -= app_bundle
@@ -37,10 +37,10 @@ QML_DESIGNER_IMPORT_PATH =
 #else: unix:!android: target.path = /opt/$${TARGET}/bin
 #!isEmpty(target.path): INSTALLS += target
 
-#linux-* {
-#    target.path = /home/root
-#    INSTALLS += target
-#}
+linux-* {
+    target.path = /home/root
+    INSTALLS += target
+}
 
 #target.path = /usr/bin/
 #INSTALLS += target

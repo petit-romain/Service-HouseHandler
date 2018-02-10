@@ -10,14 +10,6 @@ PubSubClient::PubSubClient(const QHostAddress& host, const quint16 port, QObject
     m_stateDoor = "#e12709";
     m_timer = new QTimer(this);
 
-    m_mediaPlaylist = new QMediaPlaylist(this);
-    m_mediaPlaylist->addMedia(QUrl::fromLocalFile("/home/romain/Music/Alarm_Sound.mp3"));
-    m_mediaPlaylist->setPlaybackMode(QMediaPlaylist::Loop);
-
-    m_mediaPlayer = new QMediaPlayer(this);
-    m_mediaPlayer->setPlaylist(m_mediaPlaylist);
-    m_mediaPlayer->setVolume(50);
-
     connect(this, SIGNAL(connected()), this, SLOT(onConnected()));
     connect(this, SIGNAL(subscribed(QString,quint8)), this, SLOT(onSubscribed(QString)));
     connect(this, SIGNAL(received(QMQTT::Message)), this, SLOT(onReceived(QMQTT::Message)));
@@ -102,7 +94,6 @@ void PubSubClient::onReceived(const QMQTT::Message& message)
             qDebug() << "Timer on" << endl;
             m_timer->setInterval(930);
             m_timer->start();
-            m_mediaPlayer->play();
             connect(m_timer, SIGNAL(timeout()), this, SLOT(onTimeOut()));
             qDebug() << "Someone detected topic -> " << m_smeDetected << endl;
         }
@@ -134,7 +125,6 @@ void PubSubClient::onSdAlarmMode()
     {
         qDebug() << "Timer off" << endl;
         m_smeDetected = 0;
-        m_mediaPlayer->stop();
         m_timer->stop();
         disconnect(m_timer, SIGNAL(timeout()), this, SLOT(onTimeOut()));
         Q_EMIT smeDetectedChanged();

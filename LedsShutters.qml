@@ -31,4 +31,13 @@ LedsShuttersForm {
         y: 386
         onCheckedChanged: pubsubclient.onPublish(checked, "shutter/garage")
     }
+
+    Rectangle {
+        x: 425
+        y: 389
+        width: 30
+        height: 30
+        color: pubsubclient.stateDoor
+        radius: width*0.5
+    }
 }

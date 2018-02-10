@@ -10,8 +10,6 @@
         <file>CustomTabButton.qml</file>
         <file>LedsShutters.qml</file>
         <file>LedsShuttersForm.ui.qml</file>
-        <file>Musics.qml</file>
-        <file>MusicsForm.ui.qml</file>
         <file>AlarmHandler.qml</file>
     </qresource>
 </RCC>

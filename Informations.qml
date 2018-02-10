@@ -37,10 +37,6 @@ InformationsForm {
         onCheckedChanged: checkedChanged()
     }
 
-    /*Button {c
-        onClicked: pubsubclient.onSdAlarmMode()
-    }*/
-
     CustomLabel {
         font.pointSize: 10
         x: 500
